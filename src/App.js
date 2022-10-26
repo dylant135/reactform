@@ -6,8 +6,13 @@ function App() {
   const [formData, setFormData] = React.useState({
     fname: '',
     lname: '',
-    age: ''
+    age: '',
+    skill1: '',
+    skill2: '',
+    skill1Rank: '',
+    skill2Rank: ''
   })
+
   function handleChange(event) {
     const {name, value, type, checked} = event.target
     setFormData(prevData => ({
@@ -47,6 +52,65 @@ function App() {
             className='formInput'
             value={formData.age}
           />
+        </fieldset>
+
+        <fieldset className='skillSection'>
+          <legend>Skills</legend>
+          <input 
+            type="text"
+            onChange={handleChange}
+            placeholder="Skill 1"
+            name="skill1"
+            className='formInput'
+            value={formData.skill1}
+          />
+          <br />
+          <label htmlFor='skill1Rank'>Rank Skill: </label>
+          <select
+            name='skill1Rank'
+            onChange={handleChange}
+            value={formData.skill1Rank}
+            className="formSelect"
+          >
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7</option>
+            <option value='8'>8</option>
+            <option value='9'>9</option>
+            <option value='10'>10</option>
+          </select>
+          <br />
+          <input 
+            type="text"
+            onChange={handleChange}
+            placeholder="Skill 2"
+            name="skill2"
+            className='formInput'
+            value={formData.skill2}
+          />
+          <br />
+          <label htmlFor='skill2Rank'>Rank Skill: </label>
+          <select
+            name='skill2Rank'
+            onChange={handleChange}
+            value={formData.skill2Rank}
+            className="formSelect"
+          >
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7</option>
+            <option value='8'>8</option>
+            <option value='9'>9</option>
+            <option value='10'>10</option>
+          </select>
         </fieldset>
       </form>
     </div>
