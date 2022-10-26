@@ -28,3 +28,20 @@ input {
 form {
   font-size: 1.3em;
 }
+
+.lastSection {
+  width: 50vw;
+  margin: auto;
+  text-align: center;
+}
+
+#submitbtn {
+  padding: 5px;
+  font-size: 1.4em;
+  background-color: #85C1E9;
+}
+
+#submitbtn:hover {
+  background-color: #2E86C1;
+  cursor: pointer;
+}

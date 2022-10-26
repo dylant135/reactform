@@ -10,22 +10,33 @@ function App() {
     skill1: '',
     skill2: '',
     skill1Rank: '',
-    skill2Rank: ''
+    skill2Rank: '',
+    isReady: false
   })
 
   function handleChange(event) {
     const {name, value, type, checked} = event.target
     setFormData(prevData => ({
-      ...formData,
+      ...prevData,
       [name]: type === "checkbox" ? checked : value
     }))
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    if(formData.isReady) {
+      //submitToApi(formData)
+      console.log(formData)
+    } else {
+      alert('complete all fields')
+    }
   }
 
   return (
     <div className="App">
       <h1>Form</h1>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <fieldset className='genInfo'>
           <legend>General Information</legend>
           <input 
@@ -112,6 +123,17 @@ function App() {
             <option value='10'>10</option>
           </select>
         </fieldset>
+        <div className='lastSection'>
+          <label htmlFor='isReady'>Is all the Information correct?</label>
+          <input 
+            type='checkbox'
+            onChange={handleChange}
+            name='isReady'
+            checked={formData.isReady}
+          />
+          <br />
+          <button id="submitbtn">Submit</button>
+        </div>
       </form>
     </div>
   );
